@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "counterstrike1k"
+version = "1.0.0"
+description = "CounterStrike-1K: decoding helpers for the public CS2 multi-POV world-modeling dataset."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "CC-BY-NC-4.0" }
+authors = [
+    { name = "Anirudhh Ramesh" },
+]
+keywords = [
+    "counter-strike-2",
+    "video-world-modeling",
+    "action-conditioned-video",
+    "multi-view",
+    "multi-agent",
+    "esports",
+    "audio",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "datasets>=3.0.0",
+    "huggingface-hub>=0.24.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "pyarrow>=14.0.0",
+]
+
+[project.urls]
+Homepage = "https://huggingface.co/datasets/ArnieRamesh/CounterStrike-1K"
+Source = "https://github.com/AnirudhhRamesh/CounterStrike-1K"
+Issues = "https://github.com/AnirudhhRamesh/CounterStrike-1K/issues"
+
+[project.optional-dependencies]
+notebooks = [
+    "av>=11.0.0",
+    "ipykernel>=6.0.0",
+    "jupyterlab>=4.0.0",
+    "matplotlib>=3.7.0",
+    "pillow>=10.0.0",
+]
+train = [
+    "torch>=2.10.0",
+    "torchcodec>=0.10.0",
+    "torchvision>=0.25.0",
+    "wandb>=0.18.0",
+]
+eval = [
+    "av>=11.0.0",
+    "imageio>=2.37.3",
+    "imageio-ffmpeg>=0.6.0",
+    "lpips>=0.1.4",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+]
+render = [
+    "boto3>=1.42.72",
+    "demoparser2>=0.41.0",
+    "opencv-python>=4.13.0.92",
+    "playwright>=1.58.0",
+    "requests>=2.32.5",
+    "skypilot[aws,gcp]>=0.12.1",
+    "tqdm>=4.67.3",
+]
+dev = [
+    "pytest>=9.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["counterstrike1k"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "counterstrike1k/",
+    "README.md",
+    "LICENSE",
+    "CITATION.cff",
+]
